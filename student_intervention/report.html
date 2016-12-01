@@ -11801,7 +11801,7 @@ This is a classification problem as we want to separate the students in two grou
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Import libraries</span>
@@ -11853,7 +11853,7 @@ This is a classification problem as we want to separate the students in two grou
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Calculating number of students</span>
@@ -11869,7 +11869,7 @@ This is a classification problem as we want to separate the students in two grou
 <span class="n">n_failed</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">student_data</span><span class="p">[</span><span class="n">student_data</span><span class="p">[</span><span class="s1">&#39;passed&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;no&#39;</span><span class="p">])</span>
 
 <span class="c1"># Calculating graduation rate</span>
-<span class="n">grad_rate</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">n_passed</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">n_passed</span> <span class="o">+</span> <span class="n">n_failed</span><span class="p">)</span>
+<span class="n">grad_rate</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">n_passed</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">n_passed</span> <span class="o">+</span> <span class="n">n_failed</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
 
 <span class="c1"># Print the results</span>
 <span class="k">print</span> <span class="s2">&quot;Total number of students: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n_students</span><span class="p">)</span>
@@ -11893,7 +11893,7 @@ This is a classification problem as we want to separate the students in two grou
 Number of features: 30
 Number of students who passed: 265
 Number of students who failed: 130
-Graduation rate of the class: 0.67%
+Graduation rate of the class: 67.09%
 </pre>
 </div>
 </div>
@@ -11916,7 +11916,7 @@ Graduation rate of the class: 0.67%
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Extract feature columns</span>
@@ -11998,7 +11998,7 @@ Feature values:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">preprocess_features</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
@@ -12068,7 +12068,7 @@ Feature values:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Import any additional functionality you may need here</span>
@@ -12100,6 +12100,14 @@ Feature values:
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Training set has 300 samples.
 Testing set has 95 samples.
+</pre>
+</div>
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>/Users/Piyush/.pyenv/versions/2.7.12/lib/python2.7/site-packages/sklearn/cross_validation.py:44: DeprecationWarning: This module was deprecated in version 0.18 in favor of the model_selection module into which all the refactored classes and functions are moved. Also note that the interface of the new CV iterators are different from that of this module. This module will be removed in 0.20.
+  &#34;This module will be removed in 0.20.&#34;, DeprecationWarning)
 </pre>
 </div>
 </div>
@@ -12230,7 +12238,7 @@ Testing set has 95 samples.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">train_classifier</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">):</span>
@@ -12303,7 +12311,7 @@ Testing set has 95 samples.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Import the three supervised learning models from sklearn</span>
@@ -12317,7 +12325,7 @@ Testing set has 95 samples.
 <span class="c1"># Initialize the three models</span>
 
 <span class="n">clf_A</span> <span class="o">=</span> <span class="n">GaussianNB</span><span class="p">()</span>
-<span class="n">clf_B</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s2">&quot;rbf&quot;</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">clf_B</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s2">&quot;rbf&quot;</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">clf_C</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">min_samples_split</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">clf_D</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 
@@ -12360,65 +12368,65 @@ Testing set has 95 samples.
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Training a GaussianNB using a training set size of 100. . .
-Trained model in 0.0012 seconds
+Trained model in 0.0018 seconds
 Made predictions in 0.0006 seconds.
 F1 score for training set: 0.8550.
 Made predictions in 0.0006 seconds.
 F1 score for test set: 0.7481.
 Training a GaussianNB using a training set size of 200. . .
-Trained model in 0.0008 seconds
-Made predictions in 0.0003 seconds.
+Trained model in 0.0016 seconds
+Made predictions in 0.0008 seconds.
 F1 score for training set: 0.8321.
 Made predictions in 0.0005 seconds.
 F1 score for test set: 0.7132.
 Training a GaussianNB using a training set size of 300. . .
 Trained model in 0.0020 seconds
-Made predictions in 0.0007 seconds.
+Made predictions in 0.0011 seconds.
 F1 score for training set: 0.8088.
-Made predictions in 0.0005 seconds.
+Made predictions in 0.0212 seconds.
 F1 score for test set: 0.7500.
 Training a SVC using a training set size of 100. . .
-Trained model in 0.0022 seconds
-Made predictions in 0.0015 seconds.
+Trained model in 0.0073 seconds
+Made predictions in 0.0018 seconds.
 F1 score for training set: 0.7805.
-Made predictions in 0.0016 seconds.
+Made predictions in 0.0014 seconds.
 F1 score for test set: 0.7662.
 Training a SVC using a training set size of 200. . .
-Trained model in 0.0094 seconds
-Made predictions in 0.0056 seconds.
+Trained model in 0.0074 seconds
+Made predictions in 0.0040 seconds.
 F1 score for training set: 0.7988.
-Made predictions in 0.0030 seconds.
+Made predictions in 0.0017 seconds.
 F1 score for test set: 0.7662.
 Training a SVC using a training set size of 300. . .
-Trained model in 0.0117 seconds
-Made predictions in 0.0066 seconds.
+Trained model in 0.0091 seconds
+Made predictions in 0.0090 seconds.
 F1 score for training set: 0.8142.
-Made predictions in 0.0022 seconds.
+Made predictions in 0.0024 seconds.
 F1 score for test set: 0.7662.
 Training a RandomForestClassifier using a training set size of 100. . .
-Trained model in 0.1539 seconds
-Made predictions in 0.1455 seconds.
+Trained model in 0.1544 seconds
+Made predictions in 0.1405 seconds.
 F1 score for training set: 0.8873.
-Made predictions in 0.1372 seconds.
+Made predictions in 0.1383 seconds.
 F1 score for test set: 0.7483.
 Training a RandomForestClassifier using a training set size of 200. . .
-Trained model in 0.1510 seconds
-Made predictions in 0.1342 seconds.
+Trained model in 0.1545 seconds
+Made predictions in 0.1345 seconds.
 F1 score for training set: 0.8553.
-Made predictions in 0.1390 seconds.
+Made predictions in 0.1373 seconds.
 F1 score for test set: 0.8138.
 Training a RandomForestClassifier using a training set size of 300. . .
-Trained model in 0.1547 seconds
-Made predictions in 0.1276 seconds.
+Trained model in 0.1545 seconds
+Made predictions in 0.1334 seconds.
 F1 score for training set: 0.8565.
-Made predictions in 0.1337 seconds.
+Made predictions in 0.1344 seconds.
 F1 score for test set: 0.7651.
 
 Training a DecisionTreeClassifier using a training set size of 300. . .
-Trained model in 0.0018 seconds
-Made predictions in 0.0003 seconds.
+Trained model in 0.0015 seconds
+Made predictions in 0.0002 seconds.
 F1 score for training set: 0.8647.
-Made predictions in 0.0003 seconds.
+Made predictions in 0.0002 seconds.
 F1 score for test set: 0.7883.
 </pre>
 </div>
