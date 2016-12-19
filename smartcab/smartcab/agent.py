@@ -81,9 +81,14 @@ class LearningAgent(Agent):
         ## TO DO ##
         ###########
         # Calculate the maximum Q-value of all actions for a given state
-        temp = self.Q.get(state)
+        maxQ = 0
+        #First method to calculate max q value:
+        # temp = self.Q.get(state)
+        # maxQ = max(temp.iteritems(), key=operator.itemgetter(1))[1]
 
-        maxQ = max(temp.iteritems(), key=operator.itemgetter(1))[1]
+        #Second method which can be use to calculate max q value (recommended in first review):
+        if (state in self.Q):
+            maxQ = max(self.Q[state].values())
 
         return maxQ 
 
@@ -97,7 +102,13 @@ class LearningAgent(Agent):
         # When learning, check if the 'state' is not in the Q-table
         # If it is not, create a new dictionary for that state
         #   Then, for each action available, set the initial Q-value to 0.0
-        self.Q.setdefault(self.state, { None: 0, "forward": 0, "left": 0, "right": 0})
+
+        if (self.learning):
+            self.Q.setdefault(self.state, { None: 0, "forward": 0, "left": 0, "right": 0})
+
+        #Alternate way to do the above assignment 
+        # if (self.learning) and (state not in self.Q):
+        #     self.Q[state] = {action: 0 for action in self.valid_actions}
         return
 
     def choose_action(self, state):
@@ -114,9 +125,11 @@ class LearningAgent(Agent):
         ## TO DO ##
         ###########
         temp = self.Q.get(state)
-
+        maxQ = self.get_maxQ(state)
+        temp_actions = []
         # When not learning, choose a random action
-        # action = random.choice(self.valid_actions)
+        if (self.learning == False):
+            action = random.choice(self.valid_actions)
 
         # When learning, choose a random action with 'epsilon' probability
         if (self.learning == True):
@@ -124,10 +137,16 @@ class LearningAgent(Agent):
                 action = random.choice(self.valid_actions)
             else:
                 if (temp != None):
-                    action = action = max(temp.iteritems(), key=operator.itemgetter(1))[0] 
+                    for k, v in temp.iteritems():
+                        if (v == maxQ):
+                            temp_actions.append(k)
+                    action = random.choice(temp_actions) 
         # Otherwise, choose an action with the highest Q-value for the current state        
         if (temp != None):
-            action = max(temp.iteritems(), key=operator.itemgetter(1))[0]
+            for k, v in temp.iteritems():
+                        if (v == maxQ):
+                            temp_actions.append(k)
+            action = random.choice(temp_actions)
         
         return action
 

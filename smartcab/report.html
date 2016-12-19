@@ -11864,7 +11864,7 @@ div#notebook {
 <p><strong>Answer:</strong></p>
 <ul>
 <li>The SmartCab does not move during the simulation in the default agent.py code.</li>
-<li>If the lights are red, and the rewards received are positive as the SmartCab is supposed to stop when the lights are red. When the lights turn green, the driving agent gets negative rewards as the SmartCab is supposed to move at that time.</li>
+<li>If the lights are red, and the rewards received are positive as the SmartCab is supposed to stop when the lights are red. When the lights turn green, the driving agent sometimes gets positive rewards when the oncoming traffic has to move left but rest of the times gets negative reward for not moving in green light.</li>
 <li>As mentioned above, red lights are giving positive rewards whereas when the lights turn green, the smart cab agent gets negative rewards.</li>
 </ul>
 
@@ -13682,8 +13682,8 @@ Pe6ebp5QkG8AAAAASUVORK5CYII=
 <p><strong>Answer:</strong></p>
 <ul>
 <li>For efficiency, the important features are waypoint and deadline whereas for safety, the features light and oncoming from the inputs sensor data are important.</li>
-<li>We'll be using the waypoint, inputs-light and inputs-oncoming features for training our driving agent as they are the most relevant ones.</li>
-<li>We aren't using inputs-left, inputs-right feature for training, as after onberving the environment, it is noted that the traffic from either north-south or east-west groups is moving when a light turns green at an intersection. So its not necessary to use the above mentioned features.</li>
+<li>We'll be using the waypoint, inputs-light and inputs-oncoming features for training our driving agent as they are the most relevant ones and reduce the size of state space for easier training of the driving agent.</li>
+<li>We aren't using inputs-left, inputs-right feature for training, as after onberving the environment, it is noted that the traffic from either north-south or east-west groups is moving when a light turns green at an intersection. inputs-left can be used by the driving agent to turn right incase of red light. But that will add to the complexity of the model.</li>
 <li>Also, we won't be using the deadline feature as it would unnecessarily add to the complextiy of the model with much larger number of states. If our model is trained correctly on just the three above mentioned features, we'll be able to meet the deadline to reach our destination.</li>
 </ul>
 
@@ -15725,7 +15725,7 @@ $$ \epsilon = a^t, \textrm{for } 0 < a < 1 \hspace{50px}\epsilon = \frac{1}{t^2}
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Load the &#39;sim_improved-learning&#39; file from the improved Q-Learning simulation</span>
